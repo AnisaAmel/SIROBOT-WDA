@@ -10,15 +10,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Parkinsans:wght@300..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Yarndings+12&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <a href="index.html">
-                <div class="logo"></div>
-            </a>
-            <button></button>
-        </div>
-    </header>
+    <header class="nav-wrap">
+        <nav class="navbar" id="navbar">
+            <div class="logo">
+                
+            </div>
 
+            <button class="toggle" id="toggle" aria-label="Buka menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="modul.html" class="active">Modul</a></li>
+                <li><a href="tentang-kami.html">Tentang kami</a></li>
+                <li><a href="struktur.html">Struktur</a></li>
+                <li><a href="berita.html">Berita</a></li>
+            </ul>
+
+            <div class="actions">
+                <a href="login.html" class="btn btn-login">Login</a>
+                <a href="pendaftaran.html" class="btn btn-join">Join Us <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </nav>
+    </header>
     <main>
     </main>
 

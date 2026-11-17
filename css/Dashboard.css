@@ -27,7 +27,7 @@ body.gelap {
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   color: var(--teks);
   background-color: var(--bg);
 }
