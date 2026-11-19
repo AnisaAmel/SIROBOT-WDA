@@ -24,11 +24,45 @@ a {
     color: inherit;
 }
 
+/* ===== Hero ===== */
+.hero {
+  padding: 150px 0 50px;
+  background: linear-gradient(#eef0f6, var(--latar));
+}
+
+.hero-inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.hero-text {
+  width: 52%;
+  padding-bottom: 24px;
+}
+
+.eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--merah);
+}
+
+.hero h1 {
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+.hero h2 {
+  max-width: 330px;
+  margin-bottom: 24px;
+  font-size: 26px;
+  line-height: 1.25;
+}
 /* ===== Navbar ===== */
 .navbar {
     position: sticky;
     top: 16px;
-    z-index: 10;
+    z-index: 99999;
     max-width: 1100px;
     margin: 16px auto 0;
     padding: 12px 20px;
@@ -40,12 +74,30 @@ a {
     justify-content: space-between;
     gap: 16px;
 }
+.nav-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
 .logo {
-    font-weight: 900;
-    font-size: 22px;
-    letter-spacing: .5px;
-    color: var(--red);
+    width: 120px;
+    height: 60px;
+    background-image: url('../assets/images/LogoSirobot.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .menu {
@@ -95,6 +147,10 @@ a {
 }
 
 .btn-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     background: var(--gray);
     color: var(--red);
     min-width: 120px;
@@ -137,6 +193,12 @@ a {
 
 .toggle.open span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+}
+.logo img {
+    width: 120px;
+    height: auto;
+    display: block;
+    object-fit: contain;
 }
 
 /* ===== Responsive ===== */

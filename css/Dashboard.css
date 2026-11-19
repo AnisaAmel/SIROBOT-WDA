@@ -32,6 +32,7 @@ body {
   background-color: var(--bg);
 }
 
+
 /* ===== Header (atas) ===== */
 header {
   position: fixed;
@@ -61,7 +62,7 @@ header > a strong {
   font-weight: 800;
 }
 
-/* Tombol buka/tutup menu (dibuat oleh JavaScript) */
+/* Tombol buka/tutup menu */
 .tombol-menu {
   width: 32px;
   height: 32px;
@@ -73,13 +74,13 @@ header > a strong {
   cursor: pointer;
 }
 
+/* Search */
 header form {
   flex: 1;
   max-width: 500px;
   margin: 0 auto;
 }
 
-/* Label "Cari" disembunyikan dari tampilan, tapi tetap ada untuk pembaca layar */
 header label {
   position: absolute;
   left: -9999px;
@@ -101,10 +102,223 @@ header input:focus {
   border-color: var(--merah);
 }
 
-header p {
-  margin: 0;
+/* ===== Profile Dropdown ===== */
+
+.profile-container {
+  position: relative;
+  margin-left: auto;
+}
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 5px 9px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  cursor: pointer;
+  color: var(--teks);
+  transition: .2s ease;
+}
+
+.profile-trigger:hover,
+.profile-trigger.active {
+  background-color: var(--latar);
+  border-color: var(--garis);
+}
+
+/* Avatar */
+.profile-avatar {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.online-indicator {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border: 2px solid var(--kartu);
+  border-radius: 50%;
+}
+
+/* Nama dan jabatan */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+}
+
+.profile-info strong {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.profile-info span {
+  font-size: 10px;
+  color: var(--teks-sekunder);
+}
+
+/* Chevron */
+.chevron {
+  width: 16px;
+  height: 16px;
+  transition: transform .2s ease;
+}
+
+.profile-trigger.active .chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 220px;
+  padding: 8px;
+  background-color: var(--kartu);
+  border: 1px solid var(--garis);
+  border-radius: 11px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.10);
+  z-index: 100;
+  animation: dropdownShow .2s ease;
+}
+
+.profile-dropdown[hidden] {
+  display: none;
+}
+
+.dropdown-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+}
+
+.dropdown-heading strong {
   font-size: 13px;
-  font-weight: bold;
+}
+
+.dropdown-heading span {
+  font-size: 11px;
+  color: var(--teks-sekunder);
+}
+
+/* Garis pemisah */
+.dropdown-divider {
+  height: 1px;
+  background-color: var(--garis);
+  margin: 5px 0;
+}
+
+/* Item dropdown */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px;
+  color: var(--teks);
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 7px;
+  transition: background .2s ease;
+}
+
+.dropdown-item svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.dropdown-item:hover {
+  background-color: var(--latar);
+}
+
+.dropdown-item.logout {
+  color: #dc4444;
+}
+
+.dropdown-item.logout:hover {
+  background-color: #fff1f1;
+}
+
+/* Animasi */
+@keyframes dropdownShow {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profile-info {
+    display: none;
+  }
+
+  .profile-trigger {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .profile-avatar {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+/* Responsive */
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0 16px;
+    }
+
+    .profile-trigger {
+        gap: 9px;
+        padding: 7px;
+    }
+
+    .profile-info h3 {
+        font-size: 13px;
+    }
+
+    .profile-info p {
+        font-size: 11px;
+    }
+
+    .avatar-wrapper {
+        width: 38px;
+        height: 38px;
+    }
+
+    .chevron {
+        width: 18px;
+        margin-left: 2px;
+    }
+
+    .content {
+        padding: 20px;
+    }
 }
 
 /* ===== Menu samping ===== */

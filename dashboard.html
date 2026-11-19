@@ -11,17 +11,101 @@
 </head>
 </head>
 <body>
-    <header>
+    <header class="navbar">
         <a href="index.html">
-            <div class="logo">
-                
-            </div>
+            <div class="logo"></div>
         </a>
+
         <form action="#" method="get">
             <label for="cari">Cari</label>
-            <input type="search" id="cari" name="cari" placeholder="Cari berita, modul, atau surat...">
+            <input
+                type="search"
+                id="cari"
+                name="cari"
+                placeholder="Cari berita, modul, atau surat..."
+            >
         </form>
-        <p>[Nama Pengurus]</p>
+
+        <!-- Profile Dropdown -->
+        <div class="profile-container">
+
+            <button type="button"
+                    class="profile-trigger"
+                    id="profileTrigger"
+                    aria-expanded="false"
+                    aria-controls="profileDropdown">
+
+                <div class="profile-avatar">
+                    <img src="assets/images/profile.jpg" alt="Foto profil">
+                    <span class="online-indicator"></span>
+                </div>
+
+                <div class="profile-info">
+                    <strong>Nicco Wibowo</strong>
+                    <span>Ketua UKM</span>
+                </div>
+
+                <!-- Chevron Icon -->
+                <svg class="chevron"
+                    viewBox="0 0 24 24"
+                    fill="none">
+                    <path d="M6 9L12 15L18 9"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"/>
+                </svg>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div class="profile-dropdown" id="profileDropdown" hidden>
+
+                <div class="dropdown-heading">
+                    <strong>Nicco Wibowo</strong>
+                    <span>Ketua UKM Robotika</span>
+                </div>
+
+                <div class="dropdown-divider"></div>
+
+                <a href="profile.html" class="dropdown-item">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="4"
+                                stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M4 21C4 16.6 7.6 14 12 14S20 16.6 20 21"
+                            stroke="currentColor" stroke-width="1.7"
+                            stroke-linecap="round"/>
+                    </svg>
+                    <span>Profil Saya</span>
+                </a>
+
+                <a href="settings.html" class="dropdown-item">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="3"
+                                stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M19.4 15A1.7 1.7 0 0 0 19.7 17L18 19.9L15.8 19.2A8 8 0 0 1 13.8 20L13 22H10L9.2 20A8 8 0 0 1 7.2 19.2L5 19.9L3.3 17L4.6 15A8 8 0 0 1 4.6 13L3.3 11L5 8.1L7.2 8.8A8 8 0 0 1 9.2 8L10 6H13L13.8 8A8 8 0 0 1 15.8 8.8L18 8.1L19.7 11L18.4 13A8 8 0 0 1 19.4 15Z"
+                            stroke="currentColor" stroke-width="1.5"
+                            stroke-linejoin="round"/>
+                    </svg>
+                    <span>Pengaturan</span>
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <a href="index.html" class="dropdown-item logout">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M10 17L15 12L10 7M15 12H3"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"/>
+                        <path d="M12 3H19C20.1 3 21 3.9 21 5V19C21 20.1 20.1 21 19 21H12"
+                            stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round"/>
+                    </svg>
+                    <span>Keluar</span>
+                </a>
+
+            </div>
+        </div>
     </header>
 
     <nav aria-label="Menu pengurus">
@@ -39,7 +123,7 @@
         <!-- Salam -->
         <section>
             <p>DASHBOARD PENGURUSAN</p>
-            <h1>Halo [Nama Pengurus], selamat datang kembali</h1>
+            <h1>Halo Nicco Wibowo, selamat datang kembali</h1>
             <p><a href="kelola-berita.html">+ Tambah Berita</a></p>
         </section>
 

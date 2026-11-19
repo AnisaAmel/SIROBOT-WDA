@@ -70,3 +70,42 @@ inputCari.addEventListener('input', function () {
     }
   });
 });
+
+const profileTrigger = document.getElementById("profileTrigger");
+const profileDropdown = document.getElementById("profileDropdown");
+
+function toggleDropdown() {
+    const isOpen = !profileDropdown.hidden;
+
+    profileDropdown.hidden = isOpen;
+
+    profileTrigger.classList.toggle("active", !isOpen);
+
+    profileTrigger.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+    );
+}
+
+// Klik tombol profil
+profileTrigger.addEventListener("click", toggleDropdown);
+
+// Klik di luar dropdown
+document.addEventListener("click", (event) => {
+    if (!event.target.closest(".profile-container")) {
+        closeDropdown();
+    }
+});
+
+// Tekan Escape
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeDropdown();
+    }
+});
+
+function closeDropdown() {
+    profileDropdown.hidden = true;
+    profileTrigger.classList.remove("active");
+    profileTrigger.setAttribute("aria-expanded", "false");
+}
