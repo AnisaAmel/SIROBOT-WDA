@@ -1,640 +1,351 @@
-/* Font untuk judul */
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap");
 
-/* Warna dikumpulkan di sini supaya mudah dibuat tema gelap */
-:root {
-  --bg: white;
-  --kartu: white;
-  --teks: #111;
-  --abu: #777;
-  --garis: #e5e5e5;
-  --hover: #f1f1f3;
-  --merah: #ff3b3b;
-}
+/* ==================================================
+   DASHBOARD.CSS
+   Halaman Dashboard Pengurus
 
-body.gelap {
-  --bg: #16181c;
-  --kartu: #1f2227;
-  --teks: #f0f0f0;
-  --abu: #9aa0a8;
-  --garis: #33373d;
-  --hover: #2a2d33;
-}
+   Dimuat setelah:
+   1. admin-base.css
+   2. admin-header.css
+   3. admin-sidebar.css
+   4. notifikasi.css
+================================================== */
 
-* {
-  box-sizing: border-box;
-}
 
-body {
-  margin: 0;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  color: var(--teks);
-  background-color: var(--bg);
+/* ==================================================
+   1. BANNER SALAM
+================================================== */
+
+.banner {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 180px;
+    margin-bottom: 28px;
+    padding: 28px 32px;
+
+    color: #fff;
+    background: var(--merah);
+
+    border-radius: 14px;
 }
 
 
-/* ===== Header (atas) ===== */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 0 15px;
-  background-color: var(--kartu);
-  border-bottom: 1px solid var(--garis);
-}
+/* Maskot Banner */
 
-header > a {
-  margin-right: 20px;
-  font-family: "Plus Jakarta Sans", Arial, sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--merah);
-  text-decoration: none;
-}
+.banner::after {
+    content: "";
 
-header > a strong {
-  font-weight: 800;
-}
+    position: absolute;
+    right: 70px;
+    bottom: -40px;
 
-/* Tombol buka/tutup menu */
-.tombol-menu {
-  width: 32px;
-  height: 32px;
-  font-size: 16px;
-  color: var(--teks);
-  background-color: transparent;
-  border: 1px solid var(--garis);
-  border-radius: 8px;
-  cursor: pointer;
-}
+    width: 340px;
+    height: 230px;
 
-/* Search */
-header form {
-  flex: 1;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-header label {
-  position: absolute;
-  left: -9999px;
-}
-
-header input {
-  width: 100%;
-  height: 36px;
-  padding: 0 14px;
-  font-size: 13px;
-  color: var(--teks);
-  background-color: var(--kartu);
-  border: 1px solid var(--garis);
-  border-radius: 10px;
-  outline: none;
-}
-
-header input:focus {
-  border-color: var(--merah);
-}
-
-/* ===== Profile Dropdown ===== */
-
-.profile-container {
-  position: relative;
-  margin-left: auto;
-}
-
-.profile-trigger {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 5px 9px;
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 9px;
-  cursor: pointer;
-  color: var(--teks);
-  transition: .2s ease;
-}
-
-.profile-trigger:hover,
-.profile-trigger.active {
-  background-color: var(--latar);
-  border-color: var(--garis);
-}
-
-/* Avatar */
-.profile-avatar {
-  position: relative;
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
-}
-
-.profile-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.online-indicator {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 10px;
-  height: 10px;
-  background: #22c55e;
-  border: 2px solid var(--kartu);
-  border-radius: 50%;
-}
-
-/* Nama dan jabatan */
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  text-align: left;
-}
-
-.profile-info strong {
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.profile-info span {
-  font-size: 10px;
-  color: var(--teks-sekunder);
-}
-
-/* Chevron */
-.chevron {
-  width: 16px;
-  height: 16px;
-  transition: transform .2s ease;
-}
-
-.profile-trigger.active .chevron {
-  transform: rotate(180deg);
-}
-
-/* Dropdown */
-.profile-dropdown {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  width: 220px;
-  padding: 8px;
-  background-color: var(--kartu);
-  border: 1px solid var(--garis);
-  border-radius: 11px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.10);
-  z-index: 100;
-  animation: dropdownShow .2s ease;
-}
-
-.profile-dropdown[hidden] {
-  display: none;
-}
-
-.dropdown-heading {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 10px;
-}
-
-.dropdown-heading strong {
-  font-size: 13px;
-}
-
-.dropdown-heading span {
-  font-size: 11px;
-  color: var(--teks-sekunder);
-}
-
-/* Garis pemisah */
-.dropdown-divider {
-  height: 1px;
-  background-color: var(--garis);
-  margin: 5px 0;
-}
-
-/* Item dropdown */
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 10px;
-  color: var(--teks);
-  font-size: 12px;
-  text-decoration: none;
-  border-radius: 7px;
-  transition: background .2s ease;
-}
-
-.dropdown-item svg {
-  width: 17px;
-  height: 17px;
-  flex-shrink: 0;
-}
-
-.dropdown-item:hover {
-  background-color: var(--latar);
-}
-
-.dropdown-item.logout {
-  color: #dc4444;
-}
-
-.dropdown-item.logout:hover {
-  background-color: #fff1f1;
-}
-
-/* Animasi */
-@keyframes dropdownShow {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .profile-info {
-    display: none;
-  }
-
-  .profile-trigger {
-    gap: 4px;
-    padding: 4px;
-  }
-
-  .profile-avatar {
-    width: 30px;
-    height: 30px;
-  }
+    background: url("../assets/images/Maskot 1.svg")
+        center bottom / contain no-repeat;
 }
 
 
-/* Responsive */
+/* Banner Content */
 
-@media (max-width: 600px) {
-    .navbar {
-        padding: 0 16px;
+.banner .label {
+    margin-bottom: 10px;
+
+    font-size: 12px;
+    letter-spacing: .06em;
+
+    opacity: .9;
+}
+
+.banner h1 {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 20px;
+
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.banner .btn {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ==================================================
+   2. RINGKASAN DASHBOARD
+================================================== */
+
+.ringkasan > header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+}
+
+
+/* Section Headings */
+
+.ringkasan h2,
+.tindak-lanjut h2,
+.aktivitas h2 {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.ringkasan small {
+    color: var(--abu);
+    font-size: 12px;
+}
+
+
+/* Summary Cards */
+
+.kartu-ringkas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    margin-bottom: 26px;
+}
+
+.kartu-ringkas li {
+    padding: 18px 20px;
+
+    background: var(--kartu);
+    border: 1px solid var(--garis);
+    border-radius: 16px;
+
+    box-shadow: var(--bayangan);
+}
+
+
+/* Card Title */
+
+.kartu-ringkas h3 {
+    margin-bottom: 8px;
+
+    color: var(--abu);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* Summary Number */
+
+.kartu-ringkas .angka {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.kartu-ringkas .angka strong {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.kartu-ringkas .angka span {
+    color: var(--abu);
+    font-size: 13px;
+}
+
+
+/* Card Details */
+
+.kartu-ringkas .rinci {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.kartu-ringkas .terakhir {
+    margin-bottom: 14px;
+
+    color: var(--abu);
+    font-size: 12px;
+}
+
+
+/* Card Actions */
+
+.kartu-ringkas .aksi-kartu {
+    display: flex;
+    gap: 10px;
+}
+
+
+/* ==================================================
+   3. DUA KOLOM
+   Tindak Lanjut + Aktivitas Terbaru
+================================================== */
+
+.dua-kolom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+
+/* Column Panels */
+
+.dua-kolom section {
+    padding: 20px 24px 14px;
+
+    background: var(--kartu);
+    border: 1px solid var(--garis);
+    border-radius: 16px;
+
+    box-shadow: var(--bayangan);
+}
+
+
+/* Column Heading */
+
+.dua-kolom h2 {
+    margin-bottom: 4px;
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid var(--garis);
+}
+
+
+/* ==================================================
+   4. TINDAK LANJUT
+================================================== */
+
+.tindak-lanjut li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 16px 0;
+
+    border-bottom: 1px solid var(--garis);
+
+    font-size: 14px;
+}
+
+
+/* List Indicator */
+
+.tindak-lanjut li::before {
+    content: "";
+
+    flex: none;
+
+    width: 10px;
+    height: 10px;
+
+    background: var(--merah);
+    border-radius: 50%;
+}
+
+
+/* List Content */
+
+.tindak-lanjut li span {
+    flex: 1;
+}
+
+
+/* Action Link */
+
+.tindak-lanjut li a {
+    color: var(--merah);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.tindak-lanjut li a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==================================================
+   5. AKTIVITAS TERBARU
+================================================== */
+
+.aktivitas li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 16px 0;
+
+    border-bottom: 1px solid var(--garis);
+
+    font-size: 14px;
+}
+
+
+/* Activity Time */
+
+.aktivitas time {
+    color: var(--abu);
+
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+
+/* Remove Last Border */
+
+.tindak-lanjut li:last-child,
+.aktivitas li:last-child {
+    border-bottom: 0;
+}
+
+
+/* ==================================================
+   6. RESPONSIVE
+================================================== */
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+
+    .kartu-ringkas {
+        grid-template-columns: 1fr;
     }
 
-    .profile-trigger {
-        gap: 9px;
-        padding: 7px;
+    .dua-kolom {
+        grid-template-columns: 1fr;
     }
 
-    .profile-info h3 {
-        font-size: 13px;
-    }
-
-    .profile-info p {
-        font-size: 11px;
-    }
-
-    .avatar-wrapper {
-        width: 38px;
-        height: 38px;
-    }
-
-    .chevron {
-        width: 18px;
-        margin-left: 2px;
-    }
-
-    .content {
-        padding: 20px;
-    }
 }
 
-/* ===== Menu samping ===== */
-nav {
-  position: fixed;
-  top: 50px;
-  left: 0;
-  bottom: 0;
-  z-index: 5;
-  width: 220px;
-  display: flex;
-  flex-direction: column;
-  padding: 0 12px 12px;
-  background-color: var(--kartu);
-  border-right: 1px solid var(--garis);
-  overflow-y: auto;
-}
 
-/* Hiasan langit di atas menu */
-nav::before {
-  content: "";
-  display: block;
-  height: 100px;
-  margin: 0 -12px 15px;
-  background: linear-gradient(#6ec1ff, #e6f6ff);
-}
+/* Mobile */
 
-nav p {
-  margin: 0 0 8px 10px;
-  font-size: 10px;
-  color: var(--abu);
-}
-
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-nav li {
-  margin-bottom: 4px;
-}
-
-nav a {
-  display: block;
-  padding: 9px 10px;
-  font-size: 13px;
-  color: var(--teks);
-  text-decoration: none;
-  border-radius: 8px;
-}
-
-nav a:hover {
-  background-color: var(--hover);
-}
-
-/* Menu yang sedang dibuka */
-nav a[aria-current="page"] {
-  font-weight: bold;
-  color: var(--merah);
-  background-color: var(--hover);
-}
-
-/* Logout dipisah dari menu lain */
-nav li:last-child {
-  margin-top: 15px;
-  padding-top: 10px;
-  border-top: 1px solid var(--garis);
-}
-
-nav li:last-child a {
-  color: var(--abu);
-}
-
-.logo{
-    width: 120px;
-    height: 60px;
-    background-image: url('../assets/images/LogoSirobot.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-/* Pengatur tema (dibuat oleh JavaScript) */
-.tema {
-  margin-top: auto;
-  padding-top: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  border-top: 1px solid var(--garis);
-}
-
-.tema button {
-  padding: 5px 12px;
-  font-size: 12px;
-  color: var(--teks);
-  background-color: transparent;
-  border: 1px solid var(--garis);
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-/* ===== Isi halaman ===== */
-main {
-  margin-left: 220px;
-  padding: 70px 20px 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-/* Banner dan ringkasan memenuhi lebar penuh */
-main section:nth-of-type(1),
-main section:nth-of-type(2) {
-  grid-column: 1 / 3;
-}
-
-footer {
-  margin-left: 220px;
-  padding: 15px 20px;
-}
-
-footer p {
-  margin: 0;
-  font-size: 11px;
-  color: var(--abu);
-}
-
-/* Saat menu ditutup */
-body.sidebar-tutup nav {
-  display: none;
-}
-
-body.sidebar-tutup main,
-body.sidebar-tutup footer {
-  margin-left: 0;
-}
-
-/* ===== Banner salam ===== */
-main section:nth-of-type(1) {
-  padding: 25px;
-  color: white;
-  background-color: var(--merah);
-  border-radius: 12px;
-}
-
-main section:nth-of-type(1) p {
-  margin: 0;
-  font-size: 11px;
-}
-
-main section:nth-of-type(1) h1 {
-  max-width: 380px;
-  margin: 8px 0 15px;
-  font-family: "Plus Jakarta Sans", Arial, sans-serif;
-  font-size: 22px;
-}
-
-main section:nth-of-type(1) a {
-  display: inline-block;
-  padding: 8px 14px;
-  font-size: 12px;
-  font-weight: bold;
-  color: white;
-  background-color: black;
-  text-decoration: none;
-  border-radius: 8px;
-}
-
-/* ===== Ringkasan (3 kartu) ===== */
-main section:nth-of-type(2) {
-  position: relative;
-}
-
-main h2 {
-  margin: 0 0 12px;
-  font-family: "Plus Jakarta Sans", Arial, sans-serif;
-  font-size: 15px;
-}
-
-/* tulisan "Data contoh" di pojok kanan */
-main section:nth-of-type(2) > p {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  color: var(--abu);
-}
-
-main section:nth-of-type(2) ul {
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-main section:nth-of-type(2) li {
-  flex: 1;
-  padding: 18px;
-  background-color: var(--kartu);
-  border: 1px solid var(--garis);
-  border-radius: 12px;
-}
-
-main section:nth-of-type(2) h3 {
-  margin: 0 0 8px;
-  font-size: 13px;
-  font-weight: normal;
-  color: var(--abu);
-}
-
-main section:nth-of-type(2) li p {
-  margin: 0 0 6px;
-  font-size: 12px;
-  color: var(--abu);
-}
-
-main section:nth-of-type(2) li strong {
-  margin-right: 6px;
-  font-family: "Plus Jakarta Sans", Arial, sans-serif;
-  font-size: 32px;
-  color: var(--teks);
-}
-
-/* Paragraf tombol: teks " | " disembunyikan, tinggal dua tombol */
-main section:nth-of-type(2) li p:last-child {
-  margin-top: 12px;
-  font-size: 0;
-}
-
-main section:nth-of-type(2) li p:last-child a {
-  display: inline-block;
-  margin-right: 8px;
-  padding: 7px 14px;
-  font-size: 12px;
-  color: var(--teks);
-  text-decoration: none;
-  border: 1px solid var(--garis);
-  border-radius: 8px;
-}
-
-main section:nth-of-type(2) li p:last-child a:first-child {
-  color: white;
-  background-color: var(--merah);
-  border-color: var(--merah);
-}
-
-/* ===== Perlu tindak lanjut & Aktivitas ===== */
-main section:nth-of-type(3),
-main section:nth-of-type(4) {
-  padding: 20px;
-  background-color: var(--kartu);
-  border: 1px solid var(--garis);
-  border-radius: 12px;
-}
-
-main section:nth-of-type(3) ul,
-main section:nth-of-type(4) ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-main section:nth-of-type(3) li,
-main section:nth-of-type(4) li {
-  padding: 12px 0;
-  font-size: 13px;
-  border-top: 1px solid var(--garis);
-}
-
-/* titik merah sebelum teks */
-main section:nth-of-type(3) li::before {
-  content: "";
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 10px;
-  background-color: var(--merah);
-  border-radius: 50%;
-}
-
-main section:nth-of-type(3) li a {
-  font-size: 12px;
-  font-weight: bold;
-  color: var(--merah);
-  text-decoration: none;
-}
-
-main section:nth-of-type(3) li a::after {
-  content: " →";
-}
-
-/* ===== Tampilan HP / layar kecil ===== */
 @media (max-width: 800px) {
-  main,
-  footer {
-    margin-left: 0;
-  }
 
-  main {
-    grid-template-columns: 1fr;
-  }
+    /* Banner */
 
-  main section:nth-of-type(1),
-  main section:nth-of-type(2) {
-    grid-column: auto;
-  }
+    .banner {
+        min-height: 160px;
+        padding: 22px;
+    }
 
-  main section:nth-of-type(2) ul {
-    flex-direction: column;
-  }
+    .banner::after {
+        right: -40px;
 
-  header p {
-    display: none;
-  }
+        width: 240px;
+
+        opacity: .55;
+    }
+
+    .banner h1 {
+        font-size: 21px;
+    }
+
 }
