@@ -10,7 +10,7 @@ var BERITA = [
     "peringkat": "Juara 1",
     "tahun": 2026,
     "tanggal": "12 Mei 2026",
-    "gambar": "assets/images/gambar-kartu-berita.svg",
+    "gambar": "assets/images/WhatsApp Image 2026-11-24 at 09.23.33.jpeg",
     "caption": "Tim UKM Robotika di Vokasi UNESA (kategori Programmable Logic Controller)",
     "isi": [
       "[CONTOH - ganti] Juara Nasional Olivia XI 2026 diselenggarakan oleh Vokasi UNESA. Paragraf ini berisi ringkasan: apa, kapan, dan di mana acara berlangsung.",
@@ -19,18 +19,18 @@ var BERITA = [
     ]
   },
   {
-    "id": "workshop-arduino",
+    "id": "Penyambutan-Calon",
     "tipe": "kegiatan",
     "kategori": "Kegiatan",
-    "judul": "Workshop Arduino untuk Anggota Baru",
+    "judul": "Penyambutan Calon anggota baru",
     "penyelenggara": "Divisi Edukasi",
     "peringkat": "",
     "tahun": "2026",
     "tanggal": "3 Maret 2026",
-    "gambar": "assets/images/gambar-kartu-berita.svg",
+    "gambar": "assets/images/WhatsApp Image 2026-11-24 at 09.23.33.jpeg",
     "caption": "Peserta workshop Arduino",
     "isi": [
-      "[CONTOH - ganti] Workshop Arduino untuk Anggota Baru diselenggarakan oleh Divisi Edukasi. Paragraf ini berisi ringkasan: apa, kapan, dan di mana acara berlangsung.",
+      "Penyambutan Calon anggota baru pada tanggal 27 Agustus 2023 kegiatan ini dilakukan agar calon anggota baru mengenal lebih dekat lingkungan organisasi, anggota serta aktivitas yang di lakukan di IR 64 Robotika.",
       "[CONTOH - ganti] Peran tim UKM Robotika IR64 POLIJE dan hasil yang dicapai pada kegiatan ini.",
       "[CONTOH - ganti] Penutup dan rencana kegiatan berikutnya."
     ]
