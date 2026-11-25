@@ -1,7 +1,7 @@
-/* animasi.css : efek hover kartu, menu, tombol
-   Dimuat PALING AKHIR setelah semua css lain (di semua halaman) */
+/* buat efek hover kartu, menu, tombol
+   Dimuat PALING AKHIR setelah semua css lain */
 
-/* ---------- Kartu: naik, latar bergeser, bayangan merah, gambar zoom ---------- */
+/*Kartu naik, latar bergeser, bayangan merah, gambar zoom*/
 .kabar article, .daftar-berita article, .modul-daftar article, .prestasi-daftar article {
     background: linear-gradient(120deg, #fff 0%, #fff 45%, var(--red-soft) 100%);
     background-size: 250% 100%; background-position: 0 0;
@@ -23,18 +23,18 @@
 .daftar-berita article:hover > a, .modul-daftar article:hover > a, .kabar article:hover > a { box-shadow: 0 6px 16px rgba(229, 57, 53, .4); }
 .prestasi-daftar article:hover h3 a { color: var(--red); }
 
-/* ---------- Sorotan utama ---------- */
+/*Sorotan utama*/
 .sorotan article img { transition: transform .8s ease; }
 .sorotan article:hover img { transform: scale(1.06); }
 
-/* ---------- Pill filter, nomor halaman, tombol ---------- */
+/*Pill filter, nomor halaman, tombol*/
 .pill-list a, .halaman a { transition: transform .2s, background .2s, box-shadow .2s, color .2s; }
 .pill-list a:hover, .halaman a:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0, 0, 0, .12); }
 .btn { position: relative; overflow: hidden; }
 .btn:active { transform: scale(.96); }
 
-/* ---------- Menu navbar: garis merah meluncur + latar lembut ---------- */
-/* (selector disesuaikan dengan navbar.css Anda bila struktur menunya berbeda) */
+/*Menu navbar: garis merah meluncur + latar lembut*/
+
 header nav a { position: relative; transition: color .25s, background .25s; border-radius: 8px; }
 header nav a::after {
     content: ""; position: absolute; left: 12%; right: 12%; bottom: 2px; height: 3px;
